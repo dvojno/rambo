@@ -12,7 +12,7 @@ function getAllEvents(){
 	global $connection;
 	global $events;
 	//$result = mysqli_query($connection," SELECT a.show_id, a.show_artist_id, a.show_date, a.show_notes, b.venue_id, b.venue_name, b.venue_city, b.venue_country, c.artist_name, c.artist_id FROM wpra_gigpress_shows a, wpra_gigpress_venues b, wpra_gigpress_artists c WHERE a.show_venue_id = b.venue_id AND a.show_artist_id = c.artist_id ORDER BY a.show_date DESC ");
-	$result = mysqli_query($connection," SELECT * FROM koncerti WHERE status=1 ORDER BY date DESC ");
+	$result = mysqli_query($connection," SELECT * FROM events WHERE status=1 ORDER BY date DESC ");
 	while($row = mysqli_fetch_array($result)){
 		
 		$events[] = $row;

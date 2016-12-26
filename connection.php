@@ -3,9 +3,9 @@
 $base_url = "http://ramboamadeus.com"; //@alert
 //$base_url = "163.172.159.22"; //@alert
 $servername = "localhost";
-$username = "rambo";
-$password = "Tmqo87@4";
-$dbname = "vojno_rambo";
+$username = "dev_rasmc";
+$password = "rambo1234";
+$dbname = "vojno_dev_rasmc";
 
 // $base_url = "163.172.159.22"; //@alert
 // $servername = "localhost";
