@@ -89,7 +89,7 @@ $events = db_getAllEvents();
         	echo '<td>'.$r['venue'].'</td>';
         	echo '<td>'.$r['date'].'</td>';
         	echo '<td>'.$r['city'].'</td>';
-        	echo '<td>'.$r['url'].'</td>';
+        	echo '<td>'.$r['artist_name'].'</td>';
         	echo '<td>'.$r['artist_id'].'</td>';
         	echo '<td>'.$r['country'].'</td>';
         	echo '<td>'.$r['description'].'</td>';
