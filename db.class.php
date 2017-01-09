@@ -14,11 +14,7 @@ $connection->set_charset("utf8");
 // Check connection
 if (!$connection) {
 
-	return "Connection failed: " . mysqli_connect_error();
-
-}else{
-
-	return $connection;
+	echo("Connection failed: " . mysqli_connect_error());
 
 }
 
