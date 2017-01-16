@@ -10,16 +10,18 @@ if(isset($_POST['finalPost'])){
 	$edit = $_POST['edit'];
 	$title = $_POST['title'];
 	$date_event = $_POST['date_event'];
+	$date = date('Y-m-d');
 	$description = $_POST['description'];
 	$image = $_POST['image'];
 	$content = $_POST['finalPost'];
 	$lang = $_POST['lang'];
+	$time = date('H:i:s');
 
 	if($edit == 'true'){
 
 		// Edit existing news
 		$sql = "UPDATE  news
-		SET title='$title', date_event='$date_event', description='$description', lang='$lang', image='$image', content='$content'
+		SET title='$title', date='$date', content='$content'
 		WHERE id='$id'"; 
 		if (mysqli_query($connection, $sql)) {
 		    echo "Vest je uspesno editovana.<br>";
@@ -29,7 +31,7 @@ if(isset($_POST['finalPost'])){
 	}else{
 
 		// Add new news
-		$sql = "INSERT INTO news(title, date_event, description, lang, image, content) VALUES('$title','$date_event','$description', '$lang', '$image','$content')";
+		$sql = "INSERT INTO news(title, date, content, time) VALUES('$title','$date','$content', '$time')";
 
 		if (mysqli_query($connection, $sql)) {
 		    echo "Vest je uspesno uneta u bazu.<br>";
@@ -43,7 +45,7 @@ if(isset($_POST['finalPost'])){
 
 	mysqli_close($connection);
 }else{
-	echo 'ERROR: Base variable not set!';
+	echo 'GRESKA!';
 }
 
 ?>

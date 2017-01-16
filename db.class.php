@@ -42,6 +42,7 @@ function db_getNews($limit = '1000000'){
 	$result = mysqli_query($connection," SELECT * FROM news ORDER BY date DESC LIMIT $limit ");
 	while($row = mysqli_fetch_array($result)){
 		
+		$row['content'] = str_replace("|","",$row['content']);
 		$events[] = $row;
 		//echo $row['show_id'] . ' ' . $row['venue_name'] . ' ' . $row['show_date'] . ' ' . $row['artist_name'] .'<br>';
 	}

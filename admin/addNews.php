@@ -1,5 +1,5 @@
 <h1>RAMBO AMADEUS</h1>
-<p>edit news:</p>
+<p>add news:</p>
 <html>
 <head>
 <!-- <title>JavaScript file upload</title> -->
@@ -296,7 +296,7 @@ function addNewImage(){
 			processData:false,
 			success: function(data)
 		    {
-				$("#targetLayer").html('<img src="http://petrolsofting.com/images/uploads/news/' + data + '" width="100px" height="100px" />');
+				$("#targetLayer").html('<img src="../images/uploads/news/' + data + '" width="100px" height="100px" />');
 				image = data;
 		    },
 		  	error: function() 
@@ -337,8 +337,8 @@ function addThumbnailImage(){
 			processData:false,
 			success: function(data)
 		    {
-				$("#targetLayer").html('<img src="http://petrolsofting.com/images/uploads/news/' + data + '" width="100px" height="100px" />');
-				$("#thumbnailImageCont").html('<img src="http://petrolsofting.com/images/uploads/news/' + data + '" width="100px" height="100px" />');
+				$("#targetLayer").html('<img src="../images/uploads/news/' + data + '" width="100px" height="100px" />');
+				$("#thumbnailImageCont").html('<img src="../images/uploads/news/' + data + '" width="100px" height="100px" />');
 				image = data;
 				submitThumbnailImage();
 		    },
@@ -413,7 +413,7 @@ function submitImage(){
 	var imageDescription = document.getElementById('imageDescription').value;
 	var imageAlt = document.getElementById('imageAlt').value;
 
-	var fullImage = '<img src="http://petrolsofting.com/images/uploads/news/' + image + '" alt="' + imageAlt + '" />';
+	var fullImage = '<img src="../images/uploads/news/' + image + '" alt="' + imageAlt + '" />';
 
 	contentArr.push(fullImage);
 	contentTypeArr.push('img');
