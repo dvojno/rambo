@@ -10,6 +10,7 @@ $dbname = "vojno_dev_rasmc";
 
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 $connection->set_charset("utf8");
+//mysqli_set_charset($connection,"UTF8");
 
 // Check connection
 if (!$connection) {
@@ -37,16 +38,31 @@ function db_getAllEvents($limit = '1000000'){
 // NEWS
 function db_getNews($limit = '1000000'){
 	global $connection;
-	$events = array();
+	$news = array();
 	//$result = mysqli_query($connection," SELECT a.show_id, a.show_artist_id, a.show_date, a.show_notes, b.venue_id, b.venue_name, b.venue_city, b.venue_country, c.artist_name, c.artist_id FROM wpra_gigpress_shows a, wpra_gigpress_venues b, wpra_gigpress_artists c WHERE a.show_venue_id = b.venue_id AND a.show_artist_id = c.artist_id ORDER BY a.show_date DESC ");
 	$result = mysqli_query($connection," SELECT * FROM news ORDER BY date DESC LIMIT $limit ");
 	while($row = mysqli_fetch_array($result)){
 		
 		$row['content'] = str_replace("|","",$row['content']);
-		$events[] = $row;
+		$news[] = $row;
 		//echo $row['show_id'] . ' ' . $row['venue_name'] . ' ' . $row['show_date'] . ' ' . $row['artist_name'] .'<br>';
 	}
-  return $events;
+  return $news;
+}
+
+
+// NEWS
+function db_getLyrics($limit = '1000000'){
+	global $connection;
+	$lyrics = array();
+	//$result = mysqli_query($connection," SELECT a.show_id, a.show_artist_id, a.show_date, a.show_notes, b.venue_id, b.venue_name, b.venue_city, b.venue_country, c.artist_name, c.artist_id FROM wpra_gigpress_shows a, wpra_gigpress_venues b, wpra_gigpress_artists c WHERE a.show_venue_id = b.venue_id AND a.show_artist_id = c.artist_id ORDER BY a.show_date DESC ");
+	$result = mysqli_query($connection," SELECT * FROM lyrics ORDER BY title DESC LIMIT $limit ");
+	while($row = mysqli_fetch_array($result)){
+		
+		$lyrics[] = $row;
+		//echo $row['show_id'] . ' ' . $row['venue_name'] . ' ' . $row['show_date'] . ' ' . $row['artist_name'] .'<br>';
+	}
+  return $lyrics;
 }
 
 

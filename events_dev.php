@@ -26,6 +26,7 @@ ini_set('display_errors', 1);
 
 require('db.class.php');
 
+
 $events = db_getAllEvents();
 
 ?>
