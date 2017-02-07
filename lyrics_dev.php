@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 require('db.class.php');
 
 
-$lyrics = db_getLyrics(20);
+$lyrics = db_getLyrics();
 
 ?>
 
@@ -30,27 +30,26 @@ $lyrics = db_getLyrics(20);
     <thead>
       <tr>
         <th>Naslov</th>
-        <th>Prevod</th>
-        <th>Jezik</th>
-        <th>Album</th>
+        <!-- <th>Prevod</th> -->
+        <th>id</th>
+        <!--<th>Album</th>
         <th>Tekst</th>
-        <th>Autor</th>
+        <th>Autor</th> -->
       </tr>
     </thead>
     <tbody>
     	<?php
-    	foreach ($lyrics as $r) {
+      	// foreach ($lyrics as $title => $r) {
+       //    	echo '<h1>'.$title.'</h1>';
+       //    	echo '<p>'.$r['ids'].'</p>';
+      	// }
 
-    		echo '<tr>';
-        	echo '<td>'.$r['title'].'</td>';
-        	echo '<td>'.$r['title_lang'].'</td>';
-        	echo '<td>'.$r['lang'].'</td>';
-        	echo '<td>'.$r['album_id'].'</td>';
-        	echo '<td>'.$r['content'].'</td>';
-        	echo '<td>'.$r['author'].'</td>';
-      		echo '</tr>';
-    	}
+      echo '<pre>';
+      print_r($lyrics);
+      echo '</pre>';
       ?>
+
+      
      
 
 
@@ -61,6 +60,8 @@ $lyrics = db_getLyrics(20);
 
 </body>
 </html>
+
+
 
 
 
